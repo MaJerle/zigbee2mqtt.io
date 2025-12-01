@@ -1,7 +1,7 @@
 ---
 title: "HOBEIAN ZG-204ZQ control via MQTT"
 description: "Integrate your HOBEIAN ZG-204ZQ via Zigbee2MQTT with whatever smart home infrastructure you are using without the vendor's bridge or gateway."
-addedAt: 2022-05-07T18:17:42
+addedAt: 2025-12-01T20:18:17
 pageClass: device-page
 ---
 
@@ -17,24 +17,14 @@ pageClass: device-page
 |-----|-----|
 | Model | ZG-204ZQ  |
 | Vendor  | [HOBEIAN](/supported-devices/#v=HOBEIAN)  |
-| Description | Millimeter wave motion detection |
-| Exposes | presence, illuminance, temperature, humidity, temperature_unit, temperature_calibration, humidity_calibration, battery, fading_time, indicator, illuminance_interval, motion_detection_sensitivity |
+| Description | PIR temperature&humidity sensor |
+| Exposes | presence, illuminance, temperature, humidity, temperature_unit, temperature_calibration, humidity_calibration, battery, fading_time, indicator, illuminance_interval |
 | Picture | ![HOBEIAN ZG-204ZQ](https://www.zigbee2mqtt.io/images/devices/ZG-204ZQ.png) |
 
 
 <!-- Notes BEGIN: You can edit here. Add "## Notes" headline if not already present. -->
-## Notes
 
-### Pairing
-To start pairing, press the button (pinhole on the side of the device) using a
-pin/paperclip for approx. 10 seconds. The led will turn on, then start blinking while the
-pairing process is in progress.
 
-### Reading and Setting Values
-
-As a low power device, the motion sensor isn't reachable most of the time, but
-only when active (e.g. because it detected motion). Therefore, requests to read
-or set values (i.e. `sensitivity` or `keep_time`) will only work when the sensor detects motion.
 <!-- Notes END: Do not edit below this line -->
 
 
@@ -46,11 +36,11 @@ or set values (i.e. `sensitivity` or `keep_time`) will only work when the sensor
 
 * `temperature_calibration`: Calibrates the temperature value (absolute offset), takes into effect on next report of device. The value must be a number.
 
-* `temperature_precision`: Number of digits after decimal point for temperature, takes into effect on next report of device. This option can only decrease the precision, not increase it. The value must be a number with a minimum value of `0` and with a with a maximum value of `3`
+* `temperature_precision`: Number of digits after decimal point for temperature, takes into effect on next report of device. This option can only decrease the precision, not increase it. The value must be a number with a minimum value of `0` and with a maximum value of `3`
 
 * `humidity_calibration`: Calibrates the humidity value (absolute offset), takes into effect on next report of device. The value must be a number.
 
-* `humidity_precision`: Number of digits after decimal point for humidity, takes into effect on next report of device. This option can only decrease the precision, not increase it. The value must be a number with a minimum value of `0` and with a with a maximum value of `3`
+* `humidity_precision`: Number of digits after decimal point for humidity, takes into effect on next report of device. This option can only decrease the precision, not increase it. The value must be a number with a minimum value of `0` and with a maximum value of `3`
 
 
 ## Exposes
@@ -131,3 +121,4 @@ It's not possible to read (`/get`) this value.
 To write (`/set`) a value publish a message to topic `zigbee2mqtt/FRIENDLY_NAME/set` with payload `{"illuminance_interval": NEW_VALUE}`.
 The minimal value is `1` and the maximum value is `720`.
 The unit of this value is `minutes`.
+
